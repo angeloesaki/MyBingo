@@ -30,36 +30,45 @@
     return column;
   }
 
-  //BINGOのそれぞれのカラムの配列
-  const columns = [];
-  //B
-  columns[0] = createColumn(0);
-  //I
-  columns[1] = createColumn(1);
-  //N
-  columns[2] = createColumn(2);
-  //G
-  columns[3] = createColumn(3);
-  //O
-  columns[4] = createColumn(4);
-  //FREEにしたい箇所（真ん中）
-  //columnsの２番目の要素の２つ目の要素
-  columns[2][2] = "FREE";
+  function createColumns() {
+    for (let i = 0; i < 5; i++) {
+      columns[i] = createColumn(i);
+      // //BINGOのそれぞれのカラムの配列
+      // const columns = [];
+      // //B
+      // columns[0] = createColumn(0);
+      // //I
+      // columns[1] = createColumn(1);
+      // //N
+      // columns[2] = createColumn(2);
+      // //G
+      // columns[3] = createColumn(3);
+      // //O
+      // columns[4] = createColumn(4);
+    }
+    //FREEにしたい箇所（真ん中）
+    //columnsの２番目の要素の２つ目の要素
+    columns[2][2] = "FREE";
+    return columns;
+  }
 
   //配列の配列のようなデータ構造はconsole.table()で見やすく表示できる
   // console.table(columns);
 
-  //配列の行と列を反転
-  const bingo = [];
-  for (let row = 0; row < 5; row++) {
-    //行を作成
-    bingo[row] = [];
-    for (let col = 0; col < 5; col++) {
-      //行と列を反転
-      bingo[row][col] = columns[col][row];
+  function createBingo(columns) {
+    //配列の行と列を反転
+    const bingo = [];
+    for (let row = 0; row < 5; row++) {
+      //行を作成
+      bingo[row] = [];
+      for (let col = 0; col < 5; col++) {
+        //行と列を反転
+        bingo[row][col] = columns[col][row];
+      }
     }
+    // console.table(bingo);
+    return bingo;
   }
-  console.table(bingo);
 
   // ビンゴシートを動的に生成
   for (let row = 0; row < 5; row++) {
