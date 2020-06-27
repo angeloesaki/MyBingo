@@ -49,6 +49,7 @@
   //配列の配列のようなデータ構造はconsole.table()で見やすく表示できる
   // console.table(columns);
 
+  //配列の行と列を反転
   const bingo = [];
   for (let row = 0; row < 5; row++) {
     //行を作成
@@ -59,6 +60,17 @@
     }
   }
   console.table(bingo);
+
+  // ビンゴシートを動的に生成
+  for (let row = 0; row < 5; row++) {
+    const tr = document.createElement("tr");
+    for (let col = 0; col < 5; col++) {
+      const td = document.createElement("td");
+      td.textContent = bingo[row][col];
+      tr.appendChild(td);
+    }
+    document.querySelector("tbody").appendChild(tr);
+  }
 }
 
 //以下、数字が規則的に増えているのでfor文ループで短縮
