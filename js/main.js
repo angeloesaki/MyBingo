@@ -47,7 +47,18 @@
   columns[2][2] = "FREE";
 
   //配列の配列のようなデータ構造はconsole.table()で見やすく表示できる
-  console.table(columns);
+  // console.table(columns);
+
+  const bingo = [];
+  for (let row = 0; row < 5; row++) {
+    //行を作成
+    bingo[row] = [];
+    for (let col = 0; col < 5; col++) {
+      //行と列を反転
+      bingo[row][col] = columns[col][row];
+    }
+  }
+  console.table(bingo);
 }
 
 //以下、数字が規則的に増えているのでfor文ループで短縮
